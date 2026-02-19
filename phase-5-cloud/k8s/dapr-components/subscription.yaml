@@ -1,0 +1,11 @@
+apiVersion: dapr.io/v2alpha1
+kind: Subscription
+metadata:
+  name: task-events-subscription
+spec:
+  pubsubname: pubsub
+  topic: task-events
+  routes:
+    default: /events/task-events
+  scopes:
+    - todo-backend

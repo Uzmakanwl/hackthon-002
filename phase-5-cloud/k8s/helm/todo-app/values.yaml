@@ -1,0 +1,62 @@
+# Default values for todo-app Helm chart
+
+backend:
+  image: todo-backend:latest
+  replicas: 2
+  port: 8000
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  env:
+    DATABASE_URL: ""  # Override via secret
+    CORS_ORIGINS: "http://todo.local"
+    KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
+    DAPR_HTTP_PORT: "3500"
+  dapr:
+    enabled: true
+    appId: "todo-backend"
+    appPort: "8000"
+
+frontend:
+  image: todo-frontend:latest
+  replicas: 2
+  port: 80
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+
+ingress:
+  enabled: true
+  host: todo.local
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+kafka:
+  bootstrapServers: "kafka:9092"
+  topics:
+    - name: task-events
+      partitions: 3
+      replicationFactor: 1
+
+dapr:
+  enabled: true
+  pubsubName: "pubsub"
+  stateStoreName: "statestore"
+
+redis:
+  host: "redis:6379"
+  password: ""
+
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilization: 70

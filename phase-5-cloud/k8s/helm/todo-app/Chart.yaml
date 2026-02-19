@@ -1,0 +1,15 @@
+apiVersion: v2
+name: todo-app
+description: Event-driven Todo List application with Kafka, Dapr, and DOKS
+type: application
+version: 0.5.0
+appVersion: "0.5.0"
+keywords:
+  - todo
+  - fastapi
+  - nextjs
+  - kafka
+  - dapr
+  - kubernetes
+maintainers:
+  - name: mAzam
