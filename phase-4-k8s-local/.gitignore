@@ -60,3 +60,5 @@ temp/
 *.dylib
 *.amd64
 # phase-4-k8s-local-minikube-*
+# Ignore Minikube binaries
+minikube-*

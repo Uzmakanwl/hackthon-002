@@ -1,0 +1,59 @@
+# Default values for todo-app Helm chart
+
+backend:
+  image:
+    repository: todo-backend
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicas: 2
+  port: 8000
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  env:
+    APP_ENV: production
+    LOG_LEVEL: info
+    CORS_ORIGINS: "http://todo.local"
+
+frontend:
+  image:
+    repository: todo-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicas: 2
+  port: 80
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+
+ingress:
+  enabled: true
+  className: nginx
+  host: todo.local
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+postgres:
+  enabled: true
+  image:
+    repository: postgres
+    tag: 16-alpine
+  port: 5432
+  database: tododb
+  username: todouser
+  storage:
+    size: 1Gi
+
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70
