@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/Scripts/python:*)",
+      "Bash(\"C:\\\\Users\\\\Azam\\\\Desktop\\\\Todo List App\\\\phase-1-console\\\\.venv\\\\Scripts\\\\python\" --version)"
+    ]
+  }
+}

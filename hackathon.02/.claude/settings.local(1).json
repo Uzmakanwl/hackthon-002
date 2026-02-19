@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m venv:*)",
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(.venv/Scripts/python -m pytest tests/test_utils.py -v)",
+      "Bash(.venv/Scripts/python -m pytest:*)",
+      "Bash(.venv/Scripts/python:*)",
+      "Bash(.venv/Scripts/pip install:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx next build:*)",
+      "Bash(backend/.venv/Scripts/python -m pytest backend/tests -v --tb=short)",
+      "Bash(npm run build:*)",
+      "Bash(\".venv\\\\Scripts\\\\python\" -m pytest tests/test_mcp_tools.py -v)",
+      "Bash(\".venv\\\\Scripts\\\\python\" -m pytest tests/test_tasks_api.py -v)",
+      "Bash(\".venv\\\\Scripts\\\\python\" -m pytest tests/ -v)",
+      "Bash(\"C:\\\\Users\\\\Azam\\\\Desktop\\\\Todo List App\\\\phase-3-ai-chatbot\\\\backend\\\\.venv\\\\Scripts\\\\python\" -m pytest \"C:\\\\Users\\\\Azam\\\\Desktop\\\\Todo List App\\\\phase-3-ai-chatbot\\\\backend\\\\tests\" -v)",
+      "Bash(.venvScriptspython -m pip install -r requirements.txt)",
+      "Bash(\"C:\\\\Users\\\\Azam\\\\Desktop\\\\Todo List App\\\\phase-4-k8s-local\\\\backend\\\\.venv\\\\Scripts\\\\python\" -m pytest \"C:\\\\Users\\\\Azam\\\\Desktop\\\\Todo List App\\\\phase-4-k8s-local\\\\backend\\\\tests\" -v)"
+    ]
+  }
+}
